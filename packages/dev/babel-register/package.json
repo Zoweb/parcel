@@ -1,8 +1,7 @@
 {
   "name": "@parcel/babel-register",
-  "version": "1.10.3",
+  "version": "2.0.0",
   "description": "Blazing fast, zero configuration web application bundler",
-  "main": "index.js",
   "license": "MIT",
   "private": true,
   "repository": {
@@ -13,6 +12,7 @@
     "@babel/core": "^7.0.0"
   },
   "dependencies": {
-    "@babel/register": "^7.0.0"
+    "@babel/register": "^7.0.0",
+    "@parcel/babel-preset": "^2.0.0"
   }
 }

@@ -1,0 +1,15 @@
+[ignore]
+.*/node_modules/findup/.*
+.*/node_modules/config-chain/.*
+.*/node_modules/graphviz/documentation.json
+<PROJECT_ROOT>/packages/core/parcel-bundler/test/integration/.*
+
+[include]
+
+[libs]
+
+[lints]
+
+[options]
+
+[strict]
