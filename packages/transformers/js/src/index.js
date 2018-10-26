@@ -12,8 +12,8 @@ const SW_RE = /\bnavigator\s*\.\s*serviceWorker\s*\.\s*register\s*\(/;
 const WORKER_RE = /\bnew\s*Worker\s*\(/;
 
 // Sourcemap extraction
-const SOURCEMAP_RE = /\/\/\s*[@#]\s*sourceMappingURL\s*=\s*([^\s]+)/;
-const DATA_URL_RE = /^data:[^;]+(?:;charset=[^;]+)?;base64,(.*)/;
+// const SOURCEMAP_RE = /\/\/\s*[@#]\s*sourceMappingURL\s*=\s*([^\s]+)/;
+// const DATA_URL_RE = /^data:[^;]+(?:;charset=[^;]+)?;base64,(.*)/;
 
 function canHaveDependencies(code) {
   return IMPORT_RE.test(code) || SW_RE.test(code) || WORKER_RE.test(code);
@@ -24,7 +24,7 @@ export default transformer({
     return ast.type === 'babel' && semver.satisfies(ast.version, '^6.0.0');
   },
 
-  async parse(module, config, options) {
+  async parse(module /*, config , options */) {
     if (!canHaveDependencies(module.code)) return null;
     return {
       type: 'babel',
@@ -42,7 +42,7 @@ export default transformer({
     };
   },
 
-  async transform(module, config, options) {
+  async transform(module, config /*, options */) {
     if (!module.ast) {
       return [module];
     }

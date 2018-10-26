@@ -9,9 +9,9 @@ const readFile = promisify(fs.readFile);
 const writeFile = promisify(fs.writeFile);
 
 export default packager({
-  // async readFile(opts) {
-  //   return await readFile(opts.filePath, 'utf-8');
-  // },
+  async readFile(opts) {
+    return await readFile(opts.filePath, 'utf-8');
+  },
 
   async writeFile(opts) {
     await writeFile(opts.filePath, opts.fileContents);

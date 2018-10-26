@@ -2,8 +2,15 @@ import {minify} from 'terser';
 import {transformer} from '@parcel/plugin';
 import config from '@parcel/utils/config';
 
+// TODO: extract SourceMap from parcel-bundler ?
+// Just using an empty class skeleton for now so that linting doesn't fail
+class SourceMap {
+  addMapping() {}
+  extendSourceMap() {}
+}
+
 export default transformer({
-  async getConfig(module, options) {
+  async getConfig(module /* , options */) {
     return config.load(module.filePath, [
       '.terserrc',
       '.uglifyrc',

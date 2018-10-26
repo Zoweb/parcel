@@ -1,3 +1,3 @@
 const message = require('./message');
 
-console.log(message);
+console.log(message); // eslint-disable-line no-console

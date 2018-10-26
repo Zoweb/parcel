@@ -3,7 +3,6 @@
 import assert from 'assert';
 
 import AssetGraph, {nodeFromFile, nodeFromDep} from '../src/AssetGraph';
-import {expressionToConstant} from 'constantinople';
 
 describe('AssetGraph', () => {
   it('initialization should create one root node with edges to dependency nodes for each entry', () => {

@@ -6,7 +6,7 @@ class BundlerRunner {
   }
 
   // TODO: use plugin to create bundles
-  bundle(graph, opts) {
+  bundle(graph /* , opts */) {
     let assets = Array.from(graph.nodes.values())
       .filter(node => node.type === 'asset')
       .map(node => node.value);

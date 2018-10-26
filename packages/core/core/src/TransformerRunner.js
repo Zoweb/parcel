@@ -151,7 +151,7 @@ class TransformerRunner {
     let results = children;
     if (transformer.postProcess) {
       children = previousTransformer ? children : clone(children);
-      results = await transformer.postProcess(children, config, options);
+      results = await transformer.postProcess(children, config, this.cliOpts);
     }
 
     return {children, results};

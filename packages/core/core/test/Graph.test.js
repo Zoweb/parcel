@@ -46,10 +46,10 @@ describe('Graph', () => {
 
   it('removeEdge should prune the graph at that edge', () => {
     let graph = new Graph();
-    let nodeA = graph.addNode({id: 'a', value: 'a'});
-    let nodeB = graph.addNode({id: 'b', value: 'b'});
-    let nodeC = graph.addNode({id: 'c', value: 'c'});
-    let nodeD = graph.addNode({id: 'd', value: 'd'});
+    graph.addNode({id: 'a', value: 'a'});
+    graph.addNode({id: 'b', value: 'b'});
+    graph.addNode({id: 'c', value: 'c'});
+    graph.addNode({id: 'd', value: 'd'});
     let edgeAB = graph.addEdge({from: 'a', to: 'b'});
     let edgeAD = graph.addEdge({from: 'a', to: 'd'});
     let edgeBC = graph.addEdge({from: 'b', to: 'c'});
@@ -70,14 +70,14 @@ describe('Graph', () => {
     let graph = new Graph();
     let nodeA = graph.addNode({id: 'a', value: 'a'});
     let nodeB = graph.addNode({id: 'b', value: 'b'});
-    let nodeC = graph.addNode({id: 'c', value: 'c'});
+    graph.addNode({id: 'c', value: 'c'});
     let edgeAB = graph.addEdge({from: 'a', to: 'b'});
     let edgeAC = graph.addEdge({from: 'a', to: 'c'});
 
     let nodeD = {id: 'd', value: 'd'};
     let edgeAD = {from: 'a', to: 'd'};
 
-    let {removed, added} = graph.updateDownStreamNodes(nodeA, [nodeB, nodeD]);
+    let {removed} = graph.updateDownStreamNodes(nodeA, [nodeB, nodeD]);
 
     assert(graph.nodes.has('a'));
     assert(graph.nodes.has('b'));

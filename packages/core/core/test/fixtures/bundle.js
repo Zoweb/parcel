@@ -5,6 +5,6 @@ require('./module-b.js');
 // module outro
 
 // module intro
-console.log('hi');
+console.log('hi'); // eslint-disable-line no-console
 // module outro
 // package outro

@@ -1,6 +1,7 @@
 import traverse from 'babel-traverse';
-import nodeBuiltins from 'node-libs-browser';
+// import nodeBuiltins from 'node-libs-browser';
 
+// Can't use import for these deps
 const types = require('babel-types');
 
 export default {
@@ -21,7 +22,7 @@ export default {
     addDependency({module, config}, node.source);
   },
 
-  ExportDefaultDeclaration(node, {module, config}) {
+  ExportDefaultDeclaration(node, {module /* , config */}) {
     module.meta.isES6Module = true;
   },
 
@@ -115,7 +116,7 @@ function evaluateExpression(node) {
   return res;
 }
 
-function addDependency({module, config}, node, opts = {}) {
+function addDependency({module /* , config */}, node, opts = {}) {
   // Don't bundle node builtins
   /*if (config.target === 'node' && node.value in nodeBuiltins) {
     return;

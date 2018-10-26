@@ -27,7 +27,8 @@
     "v8-compile-cache": "^2.0.0"
   },
   "devDependencies": {
-    "@parcel/babel-register": "2.0.0"
+    "@parcel/babel-register": "2.0.0",
+    "@parcel/eslint-config": "1.10.3"
   },
   "bin": {
     "parcel": "bin.js"
