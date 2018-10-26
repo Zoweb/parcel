@@ -53,7 +53,7 @@ export default class Graph {
   }
 
   merge(graph: Graph) {
-    for (let [id, node] of graph.nodes) {
+    for (let [, node] of graph.nodes) {
       this.addNode(node);
     }
 

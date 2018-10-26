@@ -1,6 +1,7 @@
 module.exports = {
-  parser: 'babel-eslint',
   extends: 'eslint:recommended',
+  parser: 'babel-eslint',
+  plugins: ['flowtype'],
   parserOptions: {
     ecmaVersion: 8,
     ecmaFeatures: {

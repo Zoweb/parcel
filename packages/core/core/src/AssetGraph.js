@@ -43,10 +43,6 @@ const getDepNodesFromGraph = (graph: Graph): Array<Node> => {
   );
 };
 
-const getDepsFromGraph = (graph: Graph): Array<Dependency> => {
-  return getDepNodesFromGraph(graph).map(node => node.value);
-};
-
 type DepUpdates = {
   newFile?: File,
   prunedFiles: Array<File>
@@ -208,12 +204,12 @@ export default class AssetGraph extends Graph {
     }
 
     for (let edge of this.edges) {
-      let e = g.addEdge(edge.from, edge.to);
+      g.addEdge(edge.from, edge.to);
     }
 
     let tmp = tempy.file({name: 'graph.png'});
 
     await g.output('png', tmp);
-    console.log(`open ${tmp}`);
+    console.log(`open ${tmp}`); // eslint-disable-line no-console
   }
 }

@@ -5,7 +5,7 @@ import Watcher from '@parcel/watcher';
 import PQueue from 'p-queue';
 import AssetGraph from './AssetGraph';
 import {Node} from './Graph';
-import type {Dependency, Asset, File} from './types';
+import type {Dependency, File} from './types';
 import TransformerRunner from './TransformerRunner';
 import ResolverRunner from './ResolverRunner';
 import BundlerRunner from './BundlerRunner';
@@ -104,16 +104,16 @@ export default class Parcel {
 
   async build({signal}: BuildOpts) {
     try {
-      console.log('Starting build');
+      console.log('Starting build'); // eslint-disable-line no-console
       await this.updateGraph();
       await this.completeGraph({signal});
       // await this.graph.dumpGraphViz();
       let {bundles} = await this.bundle();
       await this.package(bundles);
-      console.log('Finished build');
+      console.log('Finished build'); // eslint-disable-line no-console
     } catch (e) {
       if (e !== abortError) {
-        console.error(e);
+        console.error(e); // eslint-disable-line no-console
       }
     }
   }
@@ -129,7 +129,7 @@ export default class Parcel {
     // AssetGraph keeps track of nodes that represent files that have not been transformed
     // and dependencies that have not been resolved so that rebuilds start from the leaves
     // of the graph
-    for (let [id, node] of this.graph.incompleteNodes) {
+    for (let [, node] of this.graph.incompleteNodes) {
       this.mainQueue.add(() => this.processNode(node, {signal}));
     }
 
