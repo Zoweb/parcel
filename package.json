@@ -13,12 +13,11 @@
   "scripts": {
     "build": "lerna run build --stream",
     "test": "lerna run test --stream",
-    "test-ci": "lerna run test-ci --stream",
+    "test-ci": "lerna run --concurrency 1 test-ci --stream",
     "lint": "eslint . && prettier \"./packages/*/*/{src,bin,test}/**/*.{js,json,md}\" --list-different",
     "format": "prettier --write \"./packages/*/*/{src,bin,test}/**/*.{js,json,md}\"",
     "precommit": "lint-staged",
-    "clean": "lerna clean --yes && lerna exec -- rm -rf ./lib && yarn",
-    "postinstall": "yarn build"
+    "clean": "lerna clean --yes && lerna exec -- rm -rf ./lib && yarn"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.1.0",
